@@ -9,7 +9,7 @@ $legumes = array('Salade', 'Asperge', 'Carotte');
 $fruits = ['Pomme', 'Cerise', 'Banane'];
 echo 'Legumes<br>';
 //La fonction print_r sert à afficher les tableaux (et objets) en profondeur. Pour un tableau, ça affichera
-//les index (aussi appelé "clé") et leur valuer.
+//les index (aussi appelé "clé") et leur valeur.
 print_r($legumes);
 echo '<br>';
 echo 'Fruits<br>';
@@ -18,7 +18,7 @@ echo '<br><br>';
 
 //----------------------------------------
 
-echo 'Afficher un element du tableau (l\'index d\'un tableau commence à 0)';
+echo 'Afficher un element du tableau (l\'index d\'un tableau commence à 0) <br>';
 echo '<br>';
 echo 'Le fruit a la 1er position dans le tableau '.$fruits[0].'<br>';
 echo 'Le fruit a la 2eme position dans le tableau '.$fruits[1].'<br>';

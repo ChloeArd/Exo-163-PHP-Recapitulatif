@@ -118,21 +118,20 @@ echo '<br><br>';
 //Créer un tableau pour les mois de l'année et affiché tous les mois de Janvier à Décembre
 //modifier et/ou remplacer les éléments ci-dessous
 echo "8.Les mois depuis le debut de l'annee : <br>";
-$mois = [];
-for ($i = 0; $i < 0; $i) {
-    echo '';
+$mois = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
+$count = count($mois);
+for ($i = 0; $i < $count; $i++) {
+    echo $mois[$i]."<br>";
 }
 echo '<br><br>';
 
 //Afficher les mois de la fin de l'année jusqu'au début de l'année
 //modifier et/ou remplacer les éléments ci-dessous
 echo "9.Les mois depuis la fin de l'annee : <br>";
-for ($i = 0; $i < 0; $i) {
-    echo '';
+for ($i = $count - 1; $i >= 0; --$i) {
+    echo $mois[$i].'<br>';
 }
 echo '<br><br>';
-
-
 //----------------------------------------
 //Afficher le nom et prénoms des élèves de ce collège
 $college = array(
@@ -158,6 +157,15 @@ $college = array(
 
 echo '10.Les eleves du college : <br>';
 //ajoutez votre code ici
+foreach ($college as $classe => $value) {
+    echo $classe." : <br><br>";
+    foreach($value as $nomsEleves){
+        foreach($nomsEleves as $nom => $prenom){
+            echo $nom." : ".$prenom."<br>";
+        }
+        echo "<br>";
+    }
+}
 echo '<br><br>';
 
 //----------------------------------------
@@ -165,6 +173,21 @@ echo '<br><br>';
 //reprenez le tableau ci-dessus, ajoutez des éléves pour la classe de troisième et réaffichez tout
 echo '11.Les eleves du college (avec les nouveaux arrivants): <br>';
 //ajoutez votre code ici
+$college['Troisième']= array(
+        array('Nom' => 'Escalier', 'Prenom' => 'Gertrude'),
+        array('Nom' => 'Lavabo', 'Prenom' => 'Maurice'),
+        array('Nom' => 'Herbe', 'Prenom' => 'Leo'),
+    );
+
+foreach ($college as $classe => $value) {
+    echo $classe." : <br><br>";
+    foreach($value as $nomsEleves){
+        foreach($nomsEleves as $nom => $prenom){
+            echo $nom." : ".$prenom."<br>";
+        }
+        echo "<br>";
+    }
+}
 echo '<br><br>';
 
 //----------------------------------------
@@ -206,6 +229,20 @@ $videotheque = array(
 
 echo '12.Mes films : <br>';
 //ajoutez votre code ici
+foreach ($videotheque as $index) {
+    foreach ($index as $propriete => $valeur) {
+        if(is_array($valeur)){
+            echo "acteurs : ";
+            foreach($valeur as $index2){
+                echo $index2.", ";
+            }
+            echo "<br><br>";
+        }
+        else{
+            echo $propriete . " : " . $valeur . "<br>";
+        }
+    }
+}
 echo '<br><br>';
 
 //----------------------------------------
@@ -216,4 +253,64 @@ echo '<br><br>';
 
 echo '13.Mes films : <br>';
 //ajoutez votre code ici
+array_push($videotheque,
+    array(
+        'nom' => 'Spider-Man Homecoming',
+        'date' => 2017,
+        'realisateur' => 'Jon Watts',
+        'acteurs' => array(
+            "Tom Holland", "Michael Keaton","Robert Downey Jr.", "Marisa Tomei", "Zendaya"),
+        'Résumé' => "À la suite de sa participation à l'affrontement entre Iron Man et Captain America, Peter Parker, 
+un jeune lycéen fréquentant le lycée de Midtown, continue à se servir de ses pouvoirs sous le masque
+de Spider-Man pour lutter contre la criminalité qui ronge la ville de New York, tout en essayant de
+trouver un équilibre entre sa vie de lycéen, son amour secret pour Liz, son ami Ned Leeds, et sa carrière
+de super-héros masqué. Mais avec la venue d'un nouveau super-vilain nommé le Vautour équipé d'un exosquelette, 
+Peter doit faire ses preuves en affrontant ce dernier pour prouver à Tony Stark qu'il peut être un atout pour l'équipe des Avengers."
+    ),
+    array(
+        'nom' => 'Avengers Endgame',
+        'date' => 2019,
+        'realisateur' => "Joe Russo",
+        'acteurs' => array(
+            "Robert Downey Jr.", "Chris Evans", "Chris Hemsworth", "Scarlett Johansson", "Jeremy Renner", "Mark Ruffalo", "Josh Brolin", "Karen Gillan"),
+        'Résumé' => "Le Titan Thanos ayant réussi à s'approprier les six Pierres d'Infinité et à les réunir sur le Gantelet doré, a pu réaliser son objectif 
+        de pulvériser la moitié de la population de l'Univers d'un claquement de doigts. Les quelques Avengers et Gardiens de
+         la Galaxie ayant survécu, Steve Rogers, Thor, Natasha Romanoff, Tony Stark, Carol Danvers, Clint Barton, Bruce Banner,
+          James Rhodes, Nébula et Rocket espèrent réparer le méfait de Thanos. Ils le retrouvent mais il s'avère que ce dernier
+           a détruit les pierres et Thor le décapite. Cinq ans plus tard, alors que chacun essaie de continuer sa vie et
+            d'oublier les nombreuses pertes dramatiques, Scott Lang, alias Ant-Man, parvient à s'échapper de la Dimension
+             subatomique où il était coincé depuis la disparition du Docteur Hank Pym, de sa femme Janet Van Dyne et de sa fille 
+             Hope Van Dyne. Lang propose aux Avengers une solution pour faire revenir à la vie tous les êtres disparus, dont leurs 
+             alliés et coéquipiers : récupérer les Pierres d'Infinité dans le passé grâce au royaume quantique. Pour ce faire, à 
+             l'aide des connaissances scientifiques de Bruce Banner et de Tony Stark, ils vont se scinder en plusieurs groupes pour 
+             partir chercher les gemmes dans diverses époques passées…"
+    ),
+    array(
+        'nom' => 'BabySitting',
+        'date' => 2014,
+        'realisateur' => 'Philippe Lacheau',
+        'acteurs' => array(
+            "Philippe Lacheau", "Vincent Desagnat", "Enzo Tomasini", "Tarek Boudali", "Gérard Jugnot"),
+        'Résumé' => "Franck, agent d'accueil aux éditions Schaudel, souhaite devenir dessinateur de bande dessinée.
+         Alors lorsque son patron lui propose de lire une ébauche à condition qu'il garde son fils ce soir, Franck 
+         ne peut pas refuser. Le problème, c'est qu'il s'agit du jour de son anniversaire et ses amis ne comptent pas
+          laisser tomber la fête qu'ils avaient préparée."
+    )
+);
+
+foreach ($videotheque as $index) {
+    foreach ($index as $propriete => $valeur) {
+        if(is_array($valeur)){
+            echo "acteurs : ";
+            foreach($valeur as $index2){
+                echo $index2.", ";
+            }
+            echo "<br><br>";
+        }
+        else{
+            echo $propriete . " : " . $valeur . "<br>";
+        }
+        echo "<br>";
+    }
+}
 echo '<br><br>';
